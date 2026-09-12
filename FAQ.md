@@ -3,7 +3,7 @@
 
 What versions of Android are supported?
 ---
-It was built for Tablets running on Android version 9.
+It was built for Tablets running on **Android version 9.**
 
 It will work on other versions, but some features may not work or work incorrectly.
 
