@@ -26,6 +26,11 @@ Is the entity enabled in Home Assistant?
 Does the app have the requisite permissions?
 Did you press "Refresh Changes" in the app?
 
+Why is the APK so large?
+---
+VLC library for media player entity, and not targeting specific architecture  
+
+
 How can I help?
 ---
 Use it, enjoy it, make bug reports, make suggestions for improvements or open a PR and add improvements.
