@@ -4,7 +4,10 @@
 
  
  Android Simulating ESPHome Device for use with Home Assistant
-
+ 
+---
+Work in Progress
+---
 Featuring 
 ---
 * Media Player
