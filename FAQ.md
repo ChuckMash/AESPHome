@@ -1,6 +1,10 @@
 ÆSPHome FAQ
 ---
 
+Should I install this on my personal every day device like my phone?
+---
+nah
+
 What versions of Android are supported?
 ---
 It was built for Tablets running on **Android version 9.**
