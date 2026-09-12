@@ -34,6 +34,9 @@ Why is the APK so large?
 ---
 VLC library for media player entity, and not targeting specific architecture  
 
+Why isn't the MAC address reported the actual MAC of the device?
+---
+Android being Android. Can't reliably get the WiFi MAC address, so a MAC-shaped hex of the dynamically generated Android ID is used instead.
 
 How can I help?
 ---
