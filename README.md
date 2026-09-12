@@ -11,6 +11,7 @@ Work in Progress
 Featuring 
 ---
 * Media Player
+* Bluetooth Speaker
 * Camera
 * Other Stuff!
 
@@ -85,6 +86,10 @@ Features
      * How often selected camera lens should send a still
    * Camera Lens
      * Select which camera lens should be considered this devices Camera at this time
+   * LUX Sensor Report Interval
+     * How often to send an idle LUX sensor update
+   * LUX Sensor Report Threshold
+     * How large of a LUX change should be reported immediately outside of the the report interval
    * Movement Reset Time
      * The time it take to reset after "Device Movement" is triggered
    * Movement Sensitivity
