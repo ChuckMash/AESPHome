@@ -20,8 +20,8 @@ object ScreenStateSensor : EventSensor {
   override val label                  = "Screen On"
   override val description            = ""
   override val key: Int               = id.hashCode()
-  override val enabledByDefaultApp    = true
-  override val enabledByDefaultHa     = false
+  override val enabledByDefaultApp    = false
+  override val enabledByDefaultHa     = true
   override val entityCategory         = EntityCategory.NONE
   override val icon                   = "mdi:cellphone-screenshot"
   override fun kind(context: Context) = SensorKind.Binary()

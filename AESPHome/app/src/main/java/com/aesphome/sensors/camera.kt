@@ -576,7 +576,7 @@ object CameraLuxSensor : EventSensor {
   override val description = "Requires Camera and Camera Permissions"
   override val key: Int = id.hashCode()
   override fun kind(context: Context) = SensorKind.Numeric(unit = "lx", deviceClass = "illuminance")
-  override val enabledByDefaultApp = true
+  override val enabledByDefaultApp = false
   override val enabledByDefaultHa = true
   override val entityCategory = EntityCategory.NONE
   override val icon = "mdi:brightness-6"

@@ -6,6 +6,8 @@ import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import java.io.IOException
+import java.net.InetAddress
+import java.net.InetSocketAddress
 import java.net.ServerSocket
 import java.net.Socket
 
@@ -909,15 +911,31 @@ class AESPHome(context: Context, name: String? = null, friendlyName: String? = n
 
 
 
-  // One connection at a time
+  // One connection at a time. Bound to the Wi-Fi IP specifically (not left as 0.0.0.0),
+  // so the API server is never reachable over cellular — same reasoning as mdns.kt's
+  // getWifiNetwork() binding. Retries until Wi-Fi has an address, and re-binds if it's lost.
   fun start() {
-    val server = ServerSocket(port)
     Thread({ diagnosticsLoop() }, "AESPHomeDiagnostics").start()
     while (true) {
-      val conn = server.accept()
-      val clientThread = Thread({ handleClient(conn) }, "AESPHomeClient")
-      clientThread.start()
-      clientThread.join()
+      val wifiIp = getWifiIpAddress()
+      if (wifiIp == null) {
+        Log.e(TAG, "No Wi-Fi IP yet, retrying...")
+        Thread.sleep(5000)
+        continue
+      }
+      try {
+        val server = ServerSocket()
+        server.bind(InetSocketAddress(InetAddress.getByName(wifiIp), port))
+        while (true) {
+          val conn = server.accept()
+          val clientThread = Thread({ handleClient(conn) }, "AESPHomeClient")
+          clientThread.start()
+          clientThread.join()
+        }
+      } catch (e: IOException) {
+        Log.e(TAG, "API server failed, retrying: ${e.message}")
+        Thread.sleep(5000)
+      }
     }
   }
 }

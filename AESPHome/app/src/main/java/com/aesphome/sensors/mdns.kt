@@ -5,6 +5,7 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.util.Log
+import java.io.IOException
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
@@ -55,7 +56,8 @@ fun getWifiNetwork(context: Context): Network? {
 private fun AESPHome.getLocalIp(): String {
   val socket = DatagramSocket()
   try {
-    getWifiNetwork(appContext)?.bindSocket(socket) // force WiFi, not whatever Android picks by default
+    val wifi = getWifiNetwork(appContext) ?: throw IOException("No Wi-Fi network available")
+    wifi.bindSocket(socket) // force WiFi — never fall through to whatever Android picks by default
     socket.connect(InetAddress.getByName("8.8.8.8"), 80) // doees not actually send
     return socket.localAddress?.hostAddress ?: "0.0.0.0"
   } finally {
@@ -82,7 +84,8 @@ internal fun AESPHome.mdnsAnnounceLoop(isRunning: () -> Boolean) {
 
       val sock = DatagramSocket()
       try {
-        getWifiNetwork(appContext)?.bindSocket(sock) // same reasoning: force WiFi as the outgoing interface
+        val wifi = getWifiNetwork(appContext) ?: throw IOException("No Wi-Fi network available")
+        wifi.bindSocket(sock) // force WiFi as the outgoing interface — never fall through to default routing
         val addr = InetSocketAddress("224.0.0.251", 5353)
         while (isRunning()) {
           sock.send(DatagramPacket(packet, packet.size, addr))

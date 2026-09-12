@@ -21,8 +21,8 @@ object SystemVolumeService : Service {
   override val id                  = "system_volume"
   override val label               = "System Volume"
   override val description         = ""
-  override val enabledByDefaultApp = true
-  override val enabledByDefaultHa  = false
+  override val enabledByDefaultApp = false
+  override val enabledByDefaultHa  = true
   override val entityCategory      = EntityCategory.NONE
   override val icon                = "mdi:volume-high"
 
