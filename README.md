@@ -1,6 +1,6 @@
 
 # ÆSPHome
-<img width="438" height="320" alt="650661488-e618842e-ada1-4117-b1f5-fca8add50a47" src="https://github.com/user-attachments/assets/4022084f-d793-497c-9eac-ec22fc399b92" />
+<img width="438" height="320" alt="Main Image" src="https://github.com/user-attachments/assets/4022084f-d793-497c-9eac-ec22fc399b92" />
 
  
  Android Simulating ESPHome Device for use with Home Assistant
@@ -115,6 +115,6 @@ Features
 ---
 
 
-<img width="343" height="1901" alt="650661853-c7e0e06b-13c4-4114-81b1-af4dddc3f853" src="https://github.com/user-attachments/assets/45da6d1e-fec6-4c83-a9d9-fb3774731fc0" />
+<img width="343" height="1901" alt="Controls, Sensors, Configuration" src="https://github.com/user-attachments/assets/45da6d1e-fec6-4c83-a9d9-fb3774731fc0" />
 
 
